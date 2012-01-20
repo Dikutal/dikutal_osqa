@@ -51,6 +51,7 @@ core_urls = (
     url(r'^%s(?P<id>\d+)/%s$' % (_('answers/'), _('edit/')), app.writers.edit_answer, name='edit_answer'),
     url(r'^%s(?P<id>\d+)/$' % _('revisions/'), app.readers.revisions, name='revisions'),
     url(r'^%s$' % _('questions/'), app.readers.questions, name='questions'),
+    url(r'^%s%s(?P<tags>.+)/$' % (_('questions/'), _('ask/')), app.writers.ask, name='ask'),
     url(r'^%s%s$' % (_('questions/'), _('ask/')), app.writers.ask, name='ask'),
     url(r'^%s%s$' % (_('questions/'), _('related_questions/')), app.commands.related_questions, name='related_questions'),
 

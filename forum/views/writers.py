@@ -68,7 +68,7 @@ def upload(request):#ajax upload file to a question or answer
 
     return HttpResponse(result, mimetype="application/xml")
 
-def ask(request):
+def ask(request, tags=None):
     form = None
 
     if request.POST:
@@ -106,6 +106,9 @@ def ask(request):
             
     if not form:
         form = AskForm(user=request.user)
+
+    if tags:
+        form.fields["tags"].initial = tags
 
     return render_to_response('ask.html', {
         'form' : form,
