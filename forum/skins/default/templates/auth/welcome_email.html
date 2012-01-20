@@ -3,13 +3,14 @@
 {% declare %}
     prefix = settings.EMAIL_SUBJECT_PREFIX
     app_name = settings.APP_SHORT_NAME
+    safe_app_name = html.mark_safe(smart_str(settings.APP_SHORT_NAME))
 
     exclude_greeting = True
     exclude_finetune = True
 {% enddeclare %}
 
 {% email %}
-    {% subject %}{% blocktrans %}{{ prefix }} Welcome to {{ app_name }}{% endblocktrans %}{% endsubject %}
+    {% subject %}{% blocktrans %}{{ prefix }} Welcome to {{ safe_app_name }}{% endblocktrans %}{% endsubject %}
 
     {% htmlcontent notifications/base.html %}
         <p style="{{ p_style }}">
@@ -31,7 +32,7 @@
     {% endhtmlcontent %}
 
 {% textcontent notifications/base_text.html %}
-{% blocktrans %}Howdy and welcome to {{ app_name }}. We know you're busy, so we'll keep this real simple.{% endblocktrans %},
+{% blocktrans %}Howdy and welcome to {{ safe_app_name }}. We know you're busy, so we'll keep this real simple.{% endblocktrans %},
 {% trans "Here's your login info (store it in a cool dry place):" %}
 
 {% trans "Username: " %} {{ recipient.username }}
