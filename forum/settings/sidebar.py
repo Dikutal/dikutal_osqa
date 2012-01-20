@@ -16,6 +16,11 @@ label = _("Show interesting tags in the sidebar"),
 help_text = _("Check this if you want to see the interesting tags container in the sidebar."),
 required=False))
 
+SIDEBAR_CLOUD_HIDDEN_TAGS = Setting('SIDEBAR_CLOUD_HIDDEN_TAGS', u"", SIDEBAR_SET, dict(
+label = _("Hide tags from tag cloud"),
+help_text = _("These tags are not shown in the tag cloud. Tags should be separated by spaces."),
+required=False))
+
 APP_INTRO = Setting('APP_INTRO', u'<p>Ask and answer questions, make the world better!</p>', SIDEBAR_SET, dict(
 label = _("Application intro"),
 help_text = _("The introductory page that is visible in the sidebar for anonymous users."),
