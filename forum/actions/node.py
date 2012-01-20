@@ -2,6 +2,7 @@ from django.utils.html import strip_tags
 from django.utils.translation import ugettext as _
 from forum.models.action import ActionProxy
 from forum.models import Comment, Question, Answer, NodeRevision
+from django.utils.encoding import smart_unicode
 import logging
 
 class NodeEditAction(ActionProxy):
@@ -55,7 +56,7 @@ class AnswerAction(NodeEditAction):
         return _("%(user)s answered %(asker)s on %(question)s") % {
             'user': self.hyperlink(self.user.get_profile_url(), self.friendly_username(viewer, self.user)),
             'asker': self.hyperlink(question.author.get_profile_url(), self.friendly_username(viewer, question.author)),
-            'question': self.hyperlink(self.node.get_absolute_url(), question.title)
+            'question': self.hyperlink(self.node.get_absolute_url(), smart_unicode(question.title))
         }
 
 class CommentAction(ActionProxy):
