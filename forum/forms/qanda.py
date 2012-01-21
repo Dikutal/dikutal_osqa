@@ -118,6 +118,11 @@ class TagNamesField(forms.CharField):
                 raise forms.ValidationError(_("You don't have enough reputation to create new tags. The following tags do not exist yet: %s") %
                         ', '.join(unexistent))
 
+        required_tags = settings.FORM_REQUIRED_TAGS.split()
+        if required_tags:
+            req_tags_used = set(required_tags) & set(list_temp)
+            if not req_tags_used:
+                raise forms.ValidationError(_("You must tag your question with one of the following tags: %s") % ', '.join(required_tags))
 
         return u' '.join(list_temp)
 
