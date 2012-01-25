@@ -61,7 +61,10 @@ label = _("Maximum length of a tag"),
 help_text = _("How long a tag can be."),
 ))
 
-
+FORM_REQUIRED_TAGS = Setting('FORM_REQUIRED_TAGS', u"", FORUM_SET, dict(
+label = _("Required tags"),
+help_text = _("If non-empty, one of these tags are required on each post. The tags should be separated by spaces.")
+))
 
 
 """ settings for comments """
