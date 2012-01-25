@@ -376,7 +376,9 @@ blockquote blockquote {
 }
 
 .short-summary .votes, .short-summary .status, .short-summary .views {
+    border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
     border-bottom: 1px solid #CCCCCC;
     border-right: 1px solid #CCCCCC;
     float: left;
@@ -1730,8 +1732,10 @@ div.comment-tools a:hover {
 div.dialog, .context-menu-dropdown {
     position: absolute;
     background-color: #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-shadow: 5px 5px 5px 5px;
     -moz-box-shadow: 2px 2px 5px #3060A8;
     -webkit-box-shadow: 2px 2px 5px #3060A8;
 }
@@ -1747,6 +1751,7 @@ div.dialog, .context-menu-dropdown {
 
 .context-menu-dropdown li.item {
     padding: 4px 8px 4px 8px;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
@@ -1798,6 +1803,7 @@ div.dialog .dialog-buttons {
 .dialog-yes, .dialog-no {
     padding: 0px 5px;
     margin: 0 3px 5px 3px;
+    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     background-color: #3060A8;

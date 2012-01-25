@@ -14,8 +14,10 @@
 #user-menu-dropdown {
     position: absolute;
     background-color: #EEEEEE;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 5px #3060A8;
     -moz-box-shadow: 2px 2px 5px #3060A8;
     -webkit-box-shadow: 2px 2px 5px #3060A8;
 }
@@ -44,7 +46,8 @@ div.dialog.award-rep-points table input, div.dialog.award-rep-points table texta
 
 #user-menu-dropdown li.item {
     padding: 4px 8px 4px 8px;
-     -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
 

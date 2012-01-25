@@ -40,6 +40,7 @@ table.section-example tr td {
     text-align:left;
 
     border: 1px solid #ccc;
+    border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
 }
