@@ -241,14 +241,14 @@ def export_upfiles(tf):
     folder = str(settings.UPFILES_FOLDER)
 
     if os.path.exists(folder):
-        tf.add(folder, arcname='/upfiles')
+        tf.write(folder, arcname='/upfiles')
 
 
 def export_skinsfolder(tf):
     folder = djsettings.TEMPLATE_DIRS[0]
 
     if os.path.exists(folder):
-        tf.add(folder, arcname='/skins')
+        tf.write(folder, arcname='/skins')
 
 
 def export(options, user):
