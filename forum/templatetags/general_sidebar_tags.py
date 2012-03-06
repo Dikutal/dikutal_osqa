@@ -3,6 +3,9 @@ from forum.models import Tag, Award
 from forum import settings
 
 from extra_filters import static_content
+import json
+import urllib
+from random import choice
 
 register = template.Library()
 
@@ -21,6 +24,28 @@ def sidebar_upper():
         'content': static_content(settings.SIDEBAR_UPPER_TEXT, settings.SIDEBAR_UPPER_RENDER_MODE),
         'wrap': not settings.SIDEBAR_UPPER_DONT_WRAP,
         'blockid': 'sidebar-upper'
+    }
+
+@register.inclusion_tag('sidebar/user_blocks.html')
+def sidebar_dynamic():
+    if settings.SIDEBAR_DYNAMIC_SHOW:
+        req = urllib.urlopen(settings.SIDEBAR_DYNAMIC_URL)
+        jsondata = req.read()
+        entries = json.loads(jsondata)
+
+        entry = choice(entries)
+        content = u"""[**%s**
+            ![%s](%s)
+        ](%s)
+        """ % (entry['title'], entry['title'], entry['filepath'], entry['link'])
+    else:
+        content = u""
+
+    return {
+        'show': settings.SIDEBAR_DYNAMIC_SHOW,
+        'content': static_content(content, "markdown"),
+        'wrap': True,
+        'blockid': 'sidebar-dynamic'
     }
 
 @register.inclusion_tag('sidebar/user_blocks.html')

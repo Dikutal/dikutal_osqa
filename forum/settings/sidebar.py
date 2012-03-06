@@ -83,6 +83,15 @@ help_text = _("How to render your upper block code."),
 widget=Select(choices=RENDER_CHOICES),
 required=False))
 
+SIDEBAR_DYNAMIC_SHOW = Setting('SIDEBAR_DYNAMIC_SHOW', False, SIDEBAR_SET, dict(
+label = "Show Dynamic Block",
+help_text = "Check if your pages should display a sidebar block with dynamic content.",
+required=False))
+
+SIDEBAR_DYNAMIC_URL = Setting('SIDEBAR_DYNAMIC_URL', '', SIDEBAR_SET, dict(
+label = "Dynamic Block URL",
+help_text = "Feed block should fetch data from this URL. (JSON)",
+required=False))
 
 SIDEBAR_LOWER_SHOW = Setting('SIDEBAR_LOWER_SHOW', True, SIDEBAR_SET, dict(
 label = "Show Lower Block",

@@ -22,6 +22,7 @@
     {% if request.user.is_authenticated %}
         {% tag_selector %}
     {% endif %}
+    {% sidebar_dynamic %}
     {% sidebar_lower %}
     {% recent_tags %}
     {% recent_awards %}
