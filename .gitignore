@@ -1,0 +1,6 @@
+*.pyc
+.idea
+cache
+database.db
+settings_local.py
+log/*.log
