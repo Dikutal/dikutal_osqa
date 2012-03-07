@@ -4,7 +4,7 @@ from forum.models import Tag, Award
 from forum import settings
 
 from extra_filters import static_content
-import json
+import simplejson as json
 import urllib
 from random import choice
 
