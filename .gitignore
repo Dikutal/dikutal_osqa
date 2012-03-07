@@ -5,4 +5,6 @@ database.db
 settings_local.py
 log/*.log
 forum/upfiles/*
-forum_modules/exporter/{backups,tmp}
+forum_modules/exporter/backups/*
+forum_modules/exporter/tmp/*
+
