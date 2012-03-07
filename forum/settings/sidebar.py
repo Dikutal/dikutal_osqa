@@ -90,7 +90,12 @@ required=False))
 
 SIDEBAR_DYNAMIC_URL = Setting('SIDEBAR_DYNAMIC_URL', '', SIDEBAR_SET, dict(
 label = "Dynamic Block URL",
-help_text = "Feed block should fetch data from this URL. (JSON)",
+help_text = "Dynamic block should fetch data from this URL. (JSON)",
+required=False))
+
+SIDEBAR_DYNAMIC_CACHEDURATION = Setting('SIDEBAR_DYNAMIC_CACHEDURATION', 60*24, SIDEBAR_SET, dict(
+label = "Dynamic Block Cache Duration",
+help_text = "The dynamic content will get cached for this many minutes.",
 required=False))
 
 SIDEBAR_LOWER_SHOW = Setting('SIDEBAR_LOWER_SHOW', True, SIDEBAR_SET, dict(

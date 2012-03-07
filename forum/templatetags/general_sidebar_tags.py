@@ -1,4 +1,5 @@
 from django import template
+from django.core.cache import cache
 from forum.models import Tag, Award
 from forum import settings
 
@@ -29,9 +30,12 @@ def sidebar_upper():
 @register.inclusion_tag('sidebar/user_blocks.html')
 def sidebar_dynamic():
     if settings.SIDEBAR_DYNAMIC_SHOW:
-        req = urllib.urlopen(settings.SIDEBAR_DYNAMIC_URL)
-        jsondata = req.read()
-        entries = json.loads(jsondata)
+        entries = cache.get('dynamic_sidebar_data')
+        if entries is None:
+            req = urllib.urlopen(settings.SIDEBAR_DYNAMIC_URL)
+            jsondata = req.read()
+            entries = json.loads(jsondata)
+            cache.set('dynamic_sidebar_data', entries, 60 * settings.SIDEBAR_DYNAMIC_CACHEDURATION)
 
         entry = choice(entries)
         content = u"""[**%s**
