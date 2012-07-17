@@ -42,6 +42,7 @@ def check_spam(param, comment_type):
                 })
 
             api = Akismet(settings.WORDPRESS_API_KEY, APP_URL, "OSQA/%s" % OSQA_VERSION)
+            api.baseurl = "api.antispam.typepad.com/1.1/" # http://meta.osqa.net/questions/8456/preparing-for-spam
             if api.comment_check(comment, data):
                 post_data = request.POST
                 captcha_form = SimpleCaptchaForm(request.POST)
